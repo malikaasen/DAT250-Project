@@ -1,4 +1,4 @@
-package main.java.cloudcode.guestbook.frontend;
+package cloudcode.guestbook.frontend;
 
 import java.time.Duration;
 import java.time.Instant;

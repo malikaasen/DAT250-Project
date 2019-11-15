@@ -1,4 +1,4 @@
-package main.java.cloudcode.guestbook.frontend;
+package cloudcode.guestbook.frontend;
 
 /**
  * defines the data associated with a single guest book entry
