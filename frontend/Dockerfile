@@ -23,5 +23,8 @@ FROM docker.io/openjdk:8-jdk-alpine
 # Copy the compiled files over.
 COPY --from=build-env /app/target /app/
 
+ENV CLOUDSDK_PYTHON_SITEPACKAGES 1
+RUN apt-get update && apt-get install -qqy curl gcc python-dev python-setuptools apt-transport-https lsb-release openssh-client python-openssl && \
+
 # Starts java app with debugging server at port 5005.
 ENTRYPOINT ["java","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005,quiet=y", "-jar", "/app/frontend-1.0.jar"]
