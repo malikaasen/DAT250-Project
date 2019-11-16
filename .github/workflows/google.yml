@@ -22,8 +22,8 @@ env:
   GITHUB_SHA: ${{ github.sha }}
   GKE_ZONE: europe-west1-b
   GKE_CLUSTER: gke-your-first-cluster-1-pool-1-306e9871-q0fg
-  IMAGE: java-guestbook-backend@sha256:3ce6308270f7eee8c32342b9e36a9856fbcb8bad0320ebcddb19454df023a3f7
-
+  IMAGE: java-guestbook-backend
+  
 jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
