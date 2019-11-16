@@ -22,7 +22,7 @@ env:
   GITHUB_SHA: ${{ github.sha }}
   GKE_ZONE: europe-west1-b
   GKE_CLUSTER: gke-your-first-cluster-1-pool-1-306e9871-q0fg
-  IMAGE: java-guestbook-backend
+  IMAGE: java-guestbook-frontend
   
 jobs:
   setup-build-publish-deploy:
