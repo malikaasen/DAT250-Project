@@ -37,6 +37,15 @@ public class FrontendController {
         return "signIn";
     }
 
+    @GetMapping("/home")
+    public final String home(final Model model) {
+        RestTemplate restTemplate = new RestTemplate();
+        GuestBookEntry[] response = restTemplate.getForObject(backendUri,
+            GuestBookEntry[].class);
+        model.addAttribute("messages", response);
+        return "home";
+    }
+
     /**
      * endpoint for handling form submission
      * @param formMessage holds date entered in html form
