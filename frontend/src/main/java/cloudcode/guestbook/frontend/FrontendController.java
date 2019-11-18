@@ -43,7 +43,7 @@ public class FrontendController {
         GuestBookEntry[] response = restTemplate.getForObject(backendUri,
             GuestBookEntry[].class);
         model.addAttribute("messages", response);
-        return "/home";
+        return "home";
     }
 
     /**
@@ -52,7 +52,7 @@ public class FrontendController {
      * @return redirects back to home page
      * @throws URISyntaxException when there is an issue with the backend uri
      */
-    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    @RequestMapping(value = "/home/post", method = RequestMethod.POST)
     public final String post(final GuestBookEntry formMessage)
             throws URISyntaxException {
         URI url = new URI(backendUri);
