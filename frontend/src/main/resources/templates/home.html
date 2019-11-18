@@ -14,14 +14,16 @@
     <div class="header">
         <div class="container">
             <h1>
-                <a href="/">
+                <a href="/home">
                     My Guestbook
                 </a>
             </h1>
             <a href="#" class="text-muted">View on GitHub</a>
         </div>
     </div>
-
+    <div class="logout">
+        <a href="#" onclick="signOut();">Sign out</a>
+    </div>
     <div class="container posts mt-0">
         <form class="form-inline" method="POST" th:action="@{/post}" th:object="${formmessage}">
             <label class="sr-only" for="name">Name</label>
@@ -53,5 +55,14 @@
             No messages are logged to the guestbook yet.
         </div>
     </div>
+
+    <script>
+        function signOut() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            console.log('User signed out.');
+          });
+        }
+      </script>
 </body>
 </html>
