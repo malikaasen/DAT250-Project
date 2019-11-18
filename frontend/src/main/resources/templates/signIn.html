@@ -20,7 +20,7 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
 
-        var redirectUrl = 'login';
+        var redirectUrl = '/home';
 
          //using jquery to post data dynamically
          var form = $('<form action="' + redirectUrl + '" method="post">' +

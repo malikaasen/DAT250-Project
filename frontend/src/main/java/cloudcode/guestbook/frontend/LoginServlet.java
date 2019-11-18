@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 
                 HttpSession session = rq.getSession(true);
                 session.setAttribute("Full Name", name);
-                resp.sendRedirect("/home");
+                rq.getServletContext().getRequestDispatcher("/home").forward(rq, resp);
 
             } catch (Exception e) {
                 throw new RuntimeException(e);
