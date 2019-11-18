@@ -2,8 +2,6 @@ package cloudcode.guestbook.frontend;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 
-import org.springframework.boot.autoconfigure.jersey.JerseyProperties.Servlet;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +13,11 @@ import java.io.IOException;
 @WebServlet(urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Override
     protected void doPost(HttpServletRequest rq, HttpServletResponse resp) throws ServletException, IOException {
             resp.setContentType("text/html");
@@ -22,13 +25,13 @@ public class LoginServlet extends HttpServlet {
             try {
                 String idToken = rq.getParameter("id_token");
                 GoogleIdToken.Payload payload = IDVerifier.getPayload(idToken);
-                String name = (String) payload.get("name");
+                String name = (String) payload.get("Full Name");
                 String email = payload.getEmail();
                 System.out.println("User name: " + name);
                 System.out.println("User email: " + email);
 
                 HttpSession session = rq.getSession(true);
-                session.setAttribute("user", name);
+                session.setAttribute("Full Name", name);
                 rq.getServletContext().getRequestDispatcher("/home.html").forward(rq, resp);
 
             } catch (Exception e) {
