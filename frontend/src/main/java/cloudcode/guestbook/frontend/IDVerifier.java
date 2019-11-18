@@ -7,8 +7,7 @@ import com.google.api.client.json.jackson.JacksonFactory;
 
 
 public class IDVerifier {
-    private static final String GOOGLE_CLIENT_ID = "894408581589-s17gl6vqs28olgqk1q110fffcbs9kn7c.apps.googleusercontent.com
-    ";
+    private static final String GOOGLE_CLIENT_ID = "894408581589-4lifbj8dp5s9or9k41h609h7j1c09if5.apps.googleusercontent.com";
 
     public static GoogleIdToken.Payload getPayload (String tokenString) throws Exception {
 
