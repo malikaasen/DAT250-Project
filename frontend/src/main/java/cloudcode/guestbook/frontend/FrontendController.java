@@ -43,7 +43,7 @@ public class FrontendController {
         GuestBookEntry[] response = restTemplate.getForObject(backendUri,
             GuestBookEntry[].class);
         model.addAttribute("messages", response);
-        return "home";
+        return "redirect:/home";
     }
 
     /**
@@ -64,7 +64,7 @@ public class FrontendController {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.postForObject(url, httpEntity, String.class);
 
-        return "redirect:/";
+        return "redirect:/home";
     }
 
 }
