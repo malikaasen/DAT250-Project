@@ -42,7 +42,7 @@ h1 {
 }
 
 .logout {
-    position: absolute;
+    position: relative;
     top: 0px;
     right: 0px;
 }
@@ -51,6 +51,14 @@ h1 {
     margin: 10px;
 }
   
+.g-signin2 {
+    position: relative;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
 .posts:after {
     background: linear-gradient(to right, #4285f4 25%,#db4437 25%, #db4437 50%, #f4b400 50%, #f4b400 75%, #0f9d58 75%);
     position: absolute;

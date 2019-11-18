@@ -3,6 +3,7 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="894408581589-r6ajcvh4q1vdng509t2p734oa0megv47.apps.googleusercontent.com">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
     <link rel="stylesheet" th:href="@{/style.css}" type="text/css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
@@ -14,6 +15,12 @@
             window.location.href = "home"; //yep
         }
     }
+
+    function init() {
+  gapi.load('auth2', function() {
+    /* Ready. Make a call to gapi.auth2.init or some other API */
+  });
+}
 </script>
 <script>
     function onSignIn(googleUser) {
