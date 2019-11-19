@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/style.css}" type="text/css">
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="icon" th:href="@{/favicon.png}" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
@@ -61,18 +60,17 @@
 
     <script>
         function init() {
-            if(!gapi.auth2){
-                gapi.load('auth2', function() {
-                    gapi.auth2.init();
-                });
-            }
+            gapi.load('auth2', function() {
+                gapi.auth2.init();
+            });
         }
         function signOut() {
-            gapi.auth2.getAuthInstance().signOut().then(function() {
-                console.log(gapi.auth2.getAuthInstance().isSignedIn);
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
                 window.location.href("/");
-             });
-        }
+      });
+    }
     </script>
 </body>
 </html>
