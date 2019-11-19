@@ -31,14 +31,14 @@
         console.log('Email: ' + profile.getEmail());
         console.log('id_token: ' + googleUser.getAuthResponse().id_token);
 
-        // The ID token to pass to backend:
+        // The ID token to pass:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
 
         var redirectUrl = 'home';
 
          //using jquery to post data dynamically
-         var form = $('<form action="' + redirectUrl + '" method="post">' +
+         var form = $('<form action="' + redirectUrl + '" method="get">' +
                           '<input type="text" name="id_token" value="' +
                            googleUser.getAuthResponse().id_token + '" />' +
                                                                 '</form>');
