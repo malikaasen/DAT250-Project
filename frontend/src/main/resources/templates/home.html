@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Guestbook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="894408581589-r6ajcvh4q1vdng509t2p734oa0megv47.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/style.css}" type="text/css">
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
@@ -24,7 +25,7 @@
         </div>
     </div>
     <div class="logout">
-        <button onclick="signOut()">Sign out</button>
+        <button onclick="signOut();">Sign out</button>
     </div>
     <div class="container posts mt-0">
         <form class="form-inline" method="POST" th:action="@{/post}" th:object="${formmessage}">
@@ -59,19 +60,19 @@
     </div>
 
     <script>
+        function init() {
+            if(!gapi.auth2){
+                gapi.load('auth2', function() {
+                    gapi.auth2.init();
+                });
+            }
+        }
         function signOut() {
             gapi.auth2.getAuthInstance().signOut().then(function() {
                 console.log(gapi.auth2.getAuthInstance().isSignedIn);
                 window.location.href("/");
-         });
+             });
         }
-        function init() {
-    if(!gapi.auth2){
-    gapi.load('auth2', function() {
-        gapi.auth2.init();
-    });
- }
-}
-      </script>
+    </script>
 </body>
 </html>
