@@ -15,14 +15,14 @@
         <div class="container">
             <h1>
                 <a href="/home">
-                    My Guestbook
+                    DAT250 Guestbook
                 </a>
             </h1>
-            <a href="#" class="text-muted">View on GitHub</a>
+            <a href="https://github.com/h181222/DAT250-Project" class="text-muted">View on GitHub</a>
         </div>
     </div>
     <div class="logout">
-        <a href="/" onclick="signOut()">Sign out</a>
+        <a onclick="signOut();">Sign out</a>
     </div>
     <div class="container posts mt-0">
         <form class="form-inline" method="POST" th:action="@{/post}" th:object="${formmessage}">
@@ -62,6 +62,7 @@
           auth2.signOut().then(function () {
             console.log('User signed out.');
           });
+          window.location.href = "/";
         }
       </script>
 </body>

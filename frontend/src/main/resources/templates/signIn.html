@@ -38,10 +38,7 @@
         var redirectUrl = 'home';
 
          //using jquery to post data dynamically
-         var form = $('<form action="' + redirectUrl + '" method="get">' +
-                          '<input type="text" name="id_token" value="' +
-                           googleUser.getAuthResponse().id_token + '" />' +
-                                                                '</form>');
+         var form = $('<form action="' + redirectUrl + '" method="get">' +'</form>');
          $('body').append(form);
          form.submit();
     }
